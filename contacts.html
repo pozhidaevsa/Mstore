@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="default.css">
     <title>M-store</title>
+	 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Если вы используете API локально, то в URL ресурса необходимо указывать протокол в стандартном виде (http://...)-->
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+	 <script type="text/javascript">
+        ymaps.ready(init);
+        var myMap, 
+            myPlacemark;
+
+        function init(){ 
+            myMap = new ymaps.Map("map", {
+                center: [58.009144, 56.188085],
+                zoom: 15
+            }); 
+            
+            myPlacemark = new ymaps.Placemark([58.009144, 56.188085], {
+                hintContent: 'Москва!',
+                balloonContent: 'Столица России'
+            });
+            
+            myMap.geoObjects.add(myPlacemark);
+        }
+    </script>
 </head>
 <body>
 <div id = "header">
@@ -33,6 +55,7 @@
     <h2>Контакты</h2>
     <p>email: m-store@gmail.com
 	<br>Телефон: +79655761622 </p>
+	<div id="map" style="width: 600px; height: 400px"></div>
 </div>
 </div>
 <div id="footer">
